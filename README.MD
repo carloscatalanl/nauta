@@ -1,5 +1,5 @@
 # NautaDev
-Basic WebSite
+Personal WebSite
 
 ## Website link...
 [nautadev.com](https://nautadev.com)

@@ -23,34 +23,23 @@
           <span class="icon solid major fa-laptop-code"></span>
 
           <h1><strong class="nasa-font">NAUTA</strong> DEV</h1>
-          <h3>Consultoria Digital</h3>
+          <h3>Carlos Catalán</h3>
+          <h3>Platform | CLoud Engineer</h3>
+          <br>
         </header>
         <footer>
           <ul class="icons">
             <li>
-              <a
-                href="mailto:carlosacatalanlz@gmail.com?Subject=NautaDev%20Contacto:"
-                target="_blank"
-                class="icon solid fa-envelope"
-                >Mail</a
-              >
+              <a href="#" 
+                id="copyEmail" 
+                data-email="carlosacatalanlz@gmail.com" 
+                class="icon solid fa-envelope">
+                <span id="copyFeedback" style="display:none; position:absolute; top:0px; left:0%; transform:translateX(-50%); font-size: 8px; color: #fff; background: #333; padding: 2px 5px; border-radius: 3px;">Copied!</span>
+                Mail
+              </a>
             </li>
-            <li>
-              <a
-                href="https://wa.me/526621968861?text=Hola,+estoy+interesado+en+conocer+más+sobre+su+servicio.+_Enviado+desde+nautadev.com_"
-                target="_blank"
-                class="icon brands fa-whatsapp"
-                >Whatsapp</a
-              >
-            </li>
-            <li>
-              <a
-                href="tel:6621968861"
-                target="_blank"
-                class="icon solid fa-phone"
-                >Call</a
-              >
-            </li>
+            <li><a href="https://www.linkedin.com/in/carloscatalanl/" target="_blank" class="icon brands fa-linkedin">Linkedin</a></li>
+            <li><a href="doc/cv.pdf" target="_blank" class="icon solid fa-address-card">CV</a></li>
           </ul>
         </footer>
       </section>
@@ -58,11 +47,8 @@
       <!-- Footer -->
       <footer id="footer">
         <ul class="copyright">
-          <li>
-            <a href="https://catalan.nautadev.com/"
-              >Carlos Arturo Catalán Lozada</a
-            >
-          </li>
+          <li><a href="https://www.github.com/carloscatalanl/" target="_blank" class="icon brands fa-github">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/carloscatalanl/" target="_blank" class="icon brands fa-github">Linkedin</a></li>
         </ul>
       </footer>
     </div>
@@ -79,7 +65,27 @@
         document.body.className += navigator.userAgent.match(/(MSIE|rv:11\.0)/)
           ? " is-ie"
           : "";
-      }
+      } 
+      // Email Copy Logic
+      const emailLink = document.getElementById('copyEmail');
+      const feedback = document.getElementById('copyFeedback');
+
+      emailLink.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevents the page from jumping to the top
+        const email = this.getAttribute('data-email');
+
+        navigator.clipboard.writeText(email).then(() => {
+          // Show "Copied!" feedback
+          feedback.style.display = 'block';
+          
+          // Hide feedback
+          setTimeout(() => {
+            feedback.style.display = 'none';
+          }, 500);
+        }).catch(err => {
+          console.error('Copy failed', err);
+        });
+      });
     </script>
   </body>
 </html>
